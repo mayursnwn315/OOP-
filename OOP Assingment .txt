@@ -1,0 +1,240 @@
+﻿1. What is inheritance in Java?
+Ans:
+
+
+Inheritance is a fundamental concept in object-oriented programming (OOP) that allows a class (subclass or derived class) to inherit properties and behaviours (fields and methods) from another class (superclass or base class). It promotes code reuse and establishes a relationship between classes, enabling the creation of a hierarchy of classes.
+
+
+2. What is superclass and subclass?
+Ans:
+
+
+Superclass: Also known as a base class or parent class, it is the class whose properties and behaviours are inherited by another class. It is positioned higher in the class hierarchy.
+
+
+Subclass: Also known as a derived class or child class, it is the class that inherits properties and behaviours from another class. It is positioned lower in the class hierarchy and can extend or customise the functionalities inherited from the superclass.
+
+
+3. How is inheritance implemented/achieved in Java?
+Ans:
+
+
+In Java, inheritance is implemented using the extends keyword. The subclass inherits the members (fields and methods) of the superclass. Java supports single inheritance for classes, meaning a class can extend only one superclass. Here's a simple example:
+// Superclass
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+
+// Subclass inheriting from Animal
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+
+// Example usage
+public class InheritanceExample {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.eat(); // Inherited method
+        myDog.bark(); // Method of the subclass
+    }
+}
+
+
+4. What is polymorphism?.
+Ans:
+
+
+Polymorphism is a concept in OOP that allows objects to be treated as instances of their superclass rather than their actual class. It enables a single interface to represent different underlying forms or types. There are two types of polymorphism in Java:
+
+
+Compile-time Polymorphism (Method Overloading): It occurs when there are multiple methods with the same name in the same class, but with different parameter types or a different number of parameters.
+
+
+Runtime Polymorphism (Method Overriding): It occurs when a subclass provides a specific implementation for a method that is already defined in its superclass. The method in the subclass overrides the method in the superclass.
+
+
+5. Difference between method overloading and method overriding.
+Ans:
+
+
+Method Overloading:
+
+
+Involves multiple methods in the same class with the same name but different parameters (type or number).
+Decided at compile-time (compile-time polymorphism).
+Return type may or may not be different.
+Method Overriding:
+
+
+Involves a method in a superclass and a method in a subclass with the same signature (name, parameters, and return type).
+Decided at runtime (runtime polymorphism).
+The return type must be the same or a covariant type (subtype).
+
+
+6.What is an abstraction explained with an example?
+Ans:
+
+
+Abstraction is a concept in Java that involves simplifying complex systems by modelling classes based on the essential properties and behaviours they share. It hides the implementation details and only shows the necessary features of an object.
+abstract class Shape {
+    abstract void draw(); // Abstract method (no implementation details)
+}
+
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+
+class Rectangle extends Shape {
+    void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+
+
+public class AbstractionExample {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+
+        circle.draw(); // Calls the draw method of Circle
+        rectangle.draw(); // Calls the draw method of Rectangle
+    }
+}
+In this example, Shape is an abstract class with an abstract method draw(). Concrete classes Circle and Rectangle extend the Shape class and provide their own implementation of the draw method.
+
+
+7.What is the difference between an abstract method and final method in Java? Explain with an example
+Ans:
+
+
+Abstract Method:
+
+
+An abstract method is declared without any implementation in an abstract class.
+
+
+Subclasses must provide an implementation for abstract methods.
+
+
+Example:
+
+
+abstract class Shape {
+    abstract void draw();
+}
+
+
+Final Method:
+
+
+A final method is declared with the final keyword, indicating that it cannot be overridden by subclasses.
+
+
+Example:
+
+
+
+
+class Parent {
+    final void display() {
+        System.out.println("Display method in Parent");
+    }
+}
+
+
+8.What is the final class in Java?
+Ans:
+A final class in Java is a class that cannot be subclassed or extended. Once a class is declared as final, it cannot have subclasses. It is often used when a class's design is complete, and no further modification is allowed.
+
+
+Example:
+
+
+final class FinalClass {
+    // Class members and methods
+}
+
+
+9.Difference between abstraction and encapsulation.
+Ans:
+
+
+Abstraction:
+
+
+Abstraction focuses on hiding the implementation details and showing only the essential features of an object.
+Achieved using abstract classes and interfaces.
+Example: The Shape class with abstract method draw().
+
+
+Encapsulation:
+
+
+Encapsulation involves bundling the data (fields) and the methods that operate on the data into a single unit (class).
+It restricts direct access to some of an object's components.
+Example: Using private access modifiers for fields and providing public methods (getters and setters) to access them.
+
+
+10. Difference between runtime polymorphism and compile-time polymorphism. Explain with an example.
+Ans:
+
+
+Compile-time Polymorphism (Method Overloading):
+
+
+Occurs when there are multiple methods in the same class with the same name but different parameters.
+
+
+Decided at compile time.
+
+
+Example:
+
+
+
+
+class MathOperations {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+Runtime Polymorphism (Method Overriding):
+
+
+Occurs when a subclass provides a specific implementation for a method that is already defined in its superclass.
+
+
+Decided at runtime.
+
+
+Example:
+
+
+class Animal {
+    void makeSound() {
+        System.out.println("Generic Animal Sound");
+    }
+}
+
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
